@@ -1,4 +1,4 @@
-# solent_industrial_consulting
+# Solent University Industrial Consulting
 This is a team-building exercise to fix an exisitng BGP network. 
 
 ## Runbook POC Image
