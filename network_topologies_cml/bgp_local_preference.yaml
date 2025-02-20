@@ -222,8 +222,8 @@ nodes:
   - boot_disk_size: null
     configuration:
       - name: iosxe_config.txt
-        content: "Building configuration...\n\nCurrent configuration : 6419 bytes\n\
-          !\n! Last configuration change at 13:56:50 UTC Thu Feb 20 2025\n!\nversion\
+        content: "Building configuration...\n\nCurrent configuration : 6615 bytes\n\
+          !\n! Last configuration change at 13:24:37 UTC Thu Feb 20 2025\n!\nversion\
           \ 17.3\nservice timestamps debug datetime msec\nservice timestamps log datetime\
           \ msec\nservice call-home\nplatform qfp utilization monitor load 80\nplatform\
           \ punt-keepalive disable-kernel-core\nplatform console serial\n!\nhostname\
@@ -301,17 +301,20 @@ nodes:
           \ GigabitEthernet4\n no ip address\n shutdown\n negotiation auto\n no mop\
           \ enabled\n no mop sysid\n!\nrouter bgp 10\n bgp router-id 100.100.100.10\n\
           \ bgp log-neighbor-changes\n network 1.1.1.0 mask 255.255.255.0\n neighbor\
-          \ 5.0.0.2 remote-as 11\n neighbor 5.0.0.6 remote-as 12\n!\nip forward-protocol\
-          \ nd\nno ip http server\nip http secure-server\n!\n!\n!\n!\n!\n!\n!\n!\n\
-          control-plane\n!\n!\n!\n!\n!\n!\nline con 0\n exec-timeout 0 0\n stopbits\
-          \ 1\nline vty 0\n exec-timeout 0 0\n login\n transport input ssh\nline vty\
-          \ 1\n exec-timeout 0 0\n login\n length 0\n transport input ssh\nline vty\
-          \ 2 4\n exec-timeout 0 0\n login\n transport input ssh\n!\ncall-home\n !\
-          \ If contact email address in call-home is configured as sch-smart-licensing@cisco.com\n\
-          \ ! the email address configured in Cisco Smart License Portal will be used\
-          \ as contact email address to send SCH notifications.\n contact-email-addr\
-          \ sch-smart-licensing@cisco.com\n profile \"CiscoTAC-1\"\n  active\n  destination\
-          \ transport-method http\n!\n!\n!\n!\n!\nend"
+          \ 5.0.0.2 remote-as 11\n neighbor 5.0.0.2 route-map LOCAL_PREF_RM in\n neighbor\
+          \ 5.0.0.6 remote-as 12\n!\nip forward-protocol nd\nno ip http server\nip\
+          \ http secure-server\n!\n!\nip access-list standard LOCAL_PREF_ALL\n 10\
+          \ permit any\n!\n!\n!\n!\nroute-map LOCAL_PREF_RM permit 10\n match ip address\
+          \ LOCAL_PREF_ALL\n set local-preference 50\n!\n!\n!\n!\ncontrol-plane\n\
+          !\n!\n!\n!\n!\n!\nline con 0\n exec-timeout 0 0\n stopbits 1\nline vty 0\n\
+          \ exec-timeout 0 0\n login\n transport input ssh\nline vty 1\n exec-timeout\
+          \ 0 0\n login\n length 0\n transport input ssh\nline vty 2 4\n exec-timeout\
+          \ 0 0\n login\n transport input ssh\n!\ncall-home\n ! If contact email address\
+          \ in call-home is configured as sch-smart-licensing@cisco.com\n ! the email\
+          \ address configured in Cisco Smart License Portal will be used as contact\
+          \ email address to send SCH notifications.\n contact-email-addr sch-smart-licensing@cisco.com\n\
+          \ profile \"CiscoTAC-1\"\n  active\n  destination transport-method http\n\
+          !\n!\n!\n!\n!\nend"
     cpu_limit: null
     cpus: null
     data_volume: null
